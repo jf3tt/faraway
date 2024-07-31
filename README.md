@@ -28,15 +28,15 @@ No resources.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_account_id"></a> [account\_id](#input\_account\_id) | n/a | `any` | n/a | yes |
-| <a name="input_availability_zones"></a> [availability\_zones](#input\_availability\_zones) | n/a | `any` | n/a | yes |
-| <a name="input_cidr_block"></a> [cidr\_block](#input\_cidr\_block) | n/a | `any` | n/a | yes |
-| <a name="input_cluster_endpoint_public_access"></a> [cluster\_endpoint\_public\_access](#input\_cluster\_endpoint\_public\_access) | n/a | `any` | n/a | yes |
-| <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | n/a | `any` | n/a | yes |
-| <a name="input_cluster_version"></a> [cluster\_version](#input\_cluster\_version) | n/a | `any` | n/a | yes |
-| <a name="input_name"></a> [name](#input\_name) | n/a | `any` | n/a | yes |
-| <a name="input_region"></a> [region](#input\_region) | n/a | `any` | n/a | yes |
-| <a name="input_workers_instance_type"></a> [workers\_instance\_type](#input\_workers\_instance\_type) | n/a | `any` | n/a | yes |
+| <a name="input_account_id"></a> [account\_id](#input\_account\_id) | AWS Account ID to be used for resource creation. | `any` | n/a | yes |
+| <a name="input_availability_zones"></a> [availability\_zones](#input\_availability\_zones) | List of availability zones in the region where the VPC will be created. | `any` | n/a | yes |
+| <a name="input_cidr_block"></a> [cidr\_block](#input\_cidr\_block) | The CIDR block for the VPC. | `any` | n/a | yes |
+| <a name="input_cluster_endpoint_public_access"></a> [cluster\_endpoint\_public\_access](#input\_cluster\_endpoint\_public\_access) | Whether to enable public access to the EKS cluster endpoint. | `any` | n/a | yes |
+| <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | The name of the EKS cluster. | `any` | n/a | yes |
+| <a name="input_cluster_version"></a> [cluster\_version](#input\_cluster\_version) | The version of the EKS cluster. | `any` | n/a | yes |
+| <a name="input_name"></a> [name](#input\_name) | The name of the VPC. | `any` | n/a | yes |
+| <a name="input_region"></a> [region](#input\_region) | The AWS region where the VPC will be created. | `any` | n/a | yes |
+| <a name="input_workers_instance_type"></a> [workers\_instance\_type](#input\_workers\_instance\_type) | The instance type for the worker nodes in the EKS cluster. | `any` | n/a | yes |
 
 ## Outputs
 
