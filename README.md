@@ -4,7 +4,7 @@
 - [VPC + сеть](modules/vpc/)
 - [IRSA роли для подключения внутренних компонентов через OIDC](modules/iam/)
 - [EKS](modules/eks/)
-- [AWS Loadbalancer Controller](modules/apps/aws-loadbalancer-controller/)
+- [AWS Loadbalancer Controller (NLB с аннотациями к Kubernetes Service)](modules/apps/aws-loadbalancer-controller/)
 - [Cluster Autoscaler](modules/apps/cluster-autoscaler/)
 - [Metrics Server](modules/apps/metrics-server/)
 - [Nginx + HPA](modules/apps/nginx/)
@@ -14,6 +14,23 @@
 
 ## Demo
 Демку с работой скейлинга можно посмотреть [здесь](https://www.youtube.com/watch?v=KJf4cFk-DpA) 
+
+## Production-ready checklist
+#### Security
+- Закрыть публичный доступ к Kubernetes API и внутренним компонентам за VPN
+- Настроить RBAC для разграничения доступа к кластеру
+- Настроить принудительное использование MFA устройств для авторизации через IAM Policy
+#### Network
+- Использовать Ingress Controller для более гибкой настройки маршрутизации и поддержки SSL (в текущей конфигурации используется NLB + аннотации к сервисам)
+- Использовать ExternalDNS для автоматической настройки DNS
+- Настроить TLS Encryption для внутреннего трафика через Service Mesh
+#### Monitoring
+- Настроить сбор логов и их централизованное хранение
+- Добавить в конфигурацию VictoriaMetrics в качестве Long-Term Metrics Storage
+- Настроить алертинг по критическим метрикам
+#### Misc 
+- Покрыть инфраструктуру тестами (см. [Terratest](https://terratest.gruntwork.io/))
+- Автоматизировать terraform plan\apply через CI\CD с изменениями через Pull Request
 
 <!-- BEGIN_TF_DOCS -->
 
