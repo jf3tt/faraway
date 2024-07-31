@@ -9,6 +9,8 @@
 - [Metrics Server](modules/apps/metrics-server/)
 - [Nginx + HPA](modules/apps/nginx/)
 - [Promstack](modules/apps/promstack/)
+- Поддержку EBS для Prometheus Storage
+- Terraform remote state
 
 Пример .tfvars лежит [тут](./production-example.tfvars)
 
