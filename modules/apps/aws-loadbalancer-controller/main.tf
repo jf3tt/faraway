@@ -11,7 +11,7 @@ resource "helm_release" "aws-loadbalancer-controller" {
       create: true
       name: aws-loadbalancer-controller
       annotations: 
-        eks.amazonaws.com/role-arn: arn:aws:iam::581177463563:role/aws-loadbalancer-controller
+        eks.amazonaws.com/role-arn: arn:aws:iam::${var.account_id}:role/aws-loadbalancer-controller
     clusterName: ${var.cluster_name}
     nameOverride: aws-loadbalancer-controller
     EOF

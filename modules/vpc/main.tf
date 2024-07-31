@@ -19,9 +19,7 @@ resource "aws_subnet" "private" {
   vpc_id                  = aws_vpc.main.id
 
   tags = {
-    Name                               = "${var.name}_subnet_private_${count.index + 1}"
-    # "kubernetes.io/cluster/kubernetes" = "owned"
-    # "kubernetes.io/role/internal-elb" = 1
+    Name = "${var.name}_subnet_private_${count.index + 1}"
   }
 }
 
@@ -33,8 +31,8 @@ resource "aws_subnet" "public" {
   vpc_id                  = aws_vpc.main.id
 
   tags = {
-    "Name"                             = "${var.name}_subnet_public_${count.index + 1}"
-    "kubernetes.io/role/elb"           = "1"
+    "Name"                                      = "${var.name}_subnet_public_${count.index + 1}"
+    "kubernetes.io/role/elb"                    = "1"
     "kubernetes.io/cluster/${var.cluster_name}" = "owned"
   }
 }

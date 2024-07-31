@@ -1,7 +1,7 @@
 resource "kubernetes_deployment" "nginx" {
   metadata {
-    name = "nginx-deployment"
-    namespace = "kube-system"
+    name      = "nginx-deployment"
+    namespace = "default"
     labels = {
       app = "nginx"
     }
@@ -34,11 +34,11 @@ resource "kubernetes_deployment" "nginx" {
 
           resources {
             limits = {
-              cpu    = "500m"
-              memory = "512Mi"
+              cpu    = "1000m"
+              memory = "256Mi"
             }
             requests = {
-              cpu    = "250m"
+              cpu    = "100m"
               memory = "256Mi"
             }
           }
@@ -51,10 +51,10 @@ resource "kubernetes_deployment" "nginx" {
 resource "kubernetes_service" "nginx" {
   metadata {
     name      = "nginx-service"
-    namespace = "kube-system"
+    namespace = "default"
     annotations = {
-      "service.beta.kubernetes.io/aws-load-balancer-type"             = "nlb"
-      "service.beta.kubernetes.io/aws-load-balancer-scheme"           = "internet-facing"
+      "service.beta.kubernetes.io/aws-load-balancer-type"   = "nlb"
+      "service.beta.kubernetes.io/aws-load-balancer-scheme" = "internet-facing"
     }
   }
   spec {

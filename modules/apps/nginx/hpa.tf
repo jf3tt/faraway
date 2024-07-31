@@ -6,20 +6,21 @@ resource "kubernetes_horizontal_pod_autoscaler_v2" "nginx" {
 
   spec {
     scale_target_ref {
+      api_version = "apps/v1"
       kind        = "Deployment"
       name        = "nginx-deployment"
     }
 
     min_replicas = 1
-    max_replicas = 10
+    max_replicas = 30
 
     metric {
       type = "Resource"
       resource {
-        name   = "cpu"
+        name = "cpu"
         target {
-          type               = "Utilization"
-          average_utilization = 50
+          type                = "Utilization"
+          average_utilization = 10
         }
       }
     }
