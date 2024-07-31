@@ -1,11 +1,21 @@
+## Тестовое задание на Devops
+Что сделано:
+Реализовал конфигурацию в terraform следующих компонентов:
+- [VPC + сеть](modules/vpc/)
+- [IRSA роли для подключения внутренних компонентов через OIDC](modules/iam/)
+- [EKS](modules/eks/)
+- [AWS Loadbalancer Controller](modules/apps/aws-loadbalancer-controller/)
+- [Cluster Autoscaler](modules/apps/cluster-autoscaler/)
+- [Metrics Server](modules/apps/metrics-server/)
+- [Nginx + HPA](modules/apps/nginx/)
+- [Promstack](modules/apps/promstack/)
+
+Пример .tfvars лежит [тут](./production-example.tfvars)
+
+## Demo
+Демку с работой скейлинга можно посмотреть [здесь](https://www.youtube.com/watch?v=KJf4cFk-DpA) 
+
 <!-- BEGIN_TF_DOCS -->
-## Requirements
-
-No requirements.
-
-## Providers
-
-No providers.
 
 ## Modules
 
@@ -38,7 +48,4 @@ No resources.
 | <a name="input_region"></a> [region](#input\_region) | The AWS region where the VPC will be created. | `string` | `"us-east-1"` | no |
 | <a name="input_workers_instance_type"></a> [workers\_instance\_type](#input\_workers\_instance\_type) | The instance type for the worker nodes in the EKS cluster. | `list(string)` | <pre>[<br>  "t3.medium"<br>]</pre> | no |
 
-## Outputs
-
-No outputs.
 <!-- END_TF_DOCS -->
